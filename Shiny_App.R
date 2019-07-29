@@ -1,6 +1,6 @@
 library(shiny)
 library(ggplot2)
-source('functions.R')
+source('math.R')
 
 ui <- fluidPage(
   titlePanel('Arc Calculator'),
@@ -23,7 +23,7 @@ server <- function(input, output) {
   output$arcPlot = renderPlot({
     #width = c(0, (input$width_arc / 2), input$width_arc)
     #height = c(0, input$height_arc, 0)
-    z = arcfun(input$width_arc, input$height_arc)
+    z = arc_function(input$width_arc, input$height_arc)
     t = seq(0, input$width_arc, 0.001)
     c = input$width_arc / 2 
     s = ((input$height_arc - c**2) / (input$height_arc)) / 2 
